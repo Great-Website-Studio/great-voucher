@@ -6,10 +6,10 @@ global $wpdb;
 
 $tableName = $wpdb->prefix . 'gv_configurations';
 
-$result = $wpdb->get_results("SELECT * FROM $tableName WHERE config_key = 'access_key'");
+$result = $wpdb->get_results("SELECT * FROM $tableName WHERE config_key = 'access_key' LIMIT 1");
 $accessKey = isset($result[0]) ? $result[0]->config_value : null;
 
-$result = $wpdb->get_results("SELECT * FROM $tableName WHERE config_key = 'secret_key'");
+$result = $wpdb->get_results("SELECT * FROM $tableName WHERE config_key = 'secret_key' LIMIT 1");
 $secretKey = isset($result[0]) ? $result[0]->config_value : null;
 
 ?>

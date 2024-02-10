@@ -2,7 +2,7 @@
 
 namespace GreatVoucher\Database\Migrations;
 
-class ConfigTableMigration
+class ConfigTable
 {
     /**
      * @var string

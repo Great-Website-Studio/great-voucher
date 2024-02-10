@@ -10,13 +10,25 @@ class Application
     private static $instance = null;
 
     /**
-     * @var \GreatVoucher\Core\Admin
+     * @var \GreatVoucher\App\Admin
      */
     protected $admin;
 
+    /**
+     * @var \GreatVoucher\App\Order
+     */
+    protected $order;
+
+    /**
+     * @var \GreatVoucher\App\OrderHistory
+     */
+    protected $orderHistory;
+
     public function __construct()
     {
-        $this->admin = \GreatVoucher\Core\Admin::getInstance();
+        $this->admin = \GreatVoucher\App\Admin::getInstance();
+        $this->order = \GreatVoucher\App\Order::getInstance();
+        $this->orderHistory = \GreatVoucher\App\OrderHistory::getInstance();
     }
 
     /**

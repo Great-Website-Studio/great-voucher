@@ -1,11 +1,11 @@
 <?php
 
-namespace GreatVoucher\Core;
+namespace GreatVoucher\App;
 
 class Admin
 {
     /**
-     * @var \GreatVoucher\Core\Admin
+     * @var \GreatVoucher\App\Admin
      */
     private static $instance = null;
 
@@ -39,18 +39,6 @@ class Admin
     public function page()
     {
         require_once GV_PATH . 'views/index.php';
-    }
-
-    /**
-     * @return \GreatVoucher\Core\Admin
-     */
-    public static function getInstance()
-    {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
     }
 
     /**
@@ -101,6 +89,18 @@ class Admin
         wp_redirect(admin_url('admin.php?page=great-voucher'));
 
         exit();
+    }
+
+    /**
+     * @return \GreatVoucher\App\Admin
+     */
+    public static function getInstance()
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 
     public function __destruct()
