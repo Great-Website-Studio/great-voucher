@@ -1,0 +1,17 @@
+{
+    "name": "rakhiazfa/great-voucher",
+    "autoload": {
+        "psr-4": {
+            "GreatVoucher\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rakhi Azfa Rifansya",
+            "email": "rakhiazfa0421@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}
