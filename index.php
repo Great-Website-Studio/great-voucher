@@ -22,6 +22,8 @@
  * WC tested up to: 7.2.2
  */
 
+use GreatVoucher\Core\Application;
+
 require_once __DIR__ . '/vendor/autoload.php';
 
 /**
@@ -53,3 +55,5 @@ register_deactivation_hook(
         'deactivate'
     ]
 );
+
+$application = Application::getInstance();

@@ -5,6 +5,21 @@ namespace GreatVoucher\Core;
 class Application
 {
     /**
+     * @var \GreatVoucher\Core\Application
+     */
+    private static $instance = null;
+
+    /**
+     * @var \GreatVoucher\Core\Admin
+     */
+    protected $admin;
+
+    public function __construct()
+    {
+        $this->admin = \GreatVoucher\Core\Admin::getInstance();
+    }
+
+    /**
      * @return void
      */
     public static function activate()
@@ -22,5 +37,17 @@ class Application
     public static function deactivate()
     {
         Database::rollback();
+    }
+
+    /**
+     * @return \GreatVoucher\Core\Application
+     */
+    public static function getInstance()
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 }
