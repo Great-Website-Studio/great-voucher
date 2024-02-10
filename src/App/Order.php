@@ -24,6 +24,8 @@ class Order
     }
 
     /**
+     * @param mixed $order_id
+     * 
      * @return void
      */
     public function generateVoucher($order_id)
@@ -72,6 +74,8 @@ class Order
     }
 
     /**
+     * @param mixed $order_id
+     * 
      * @return void
      */
     public function thankyou($order_id)
@@ -83,6 +87,11 @@ class Order
         in_array($status, ['processing', 'completed']) ? $this->renderVouchers($order) : null;
     }
 
+    /**
+     * @param mixed $order
+     * 
+     * @return void
+     */
     public function renderVouchers($order)
     {
         global $wpdb;

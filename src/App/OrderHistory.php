@@ -14,6 +14,11 @@ class OrderHistory
         add_action('woocommerce_order_details_after_order_table', [$this, 'renderVouchers']);
     }
 
+    /**
+     * @param mixed $order
+     * 
+     * @return void
+     */
     public function renderVouchers($order)
     {
         global $wpdb;
