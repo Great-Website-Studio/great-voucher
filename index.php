@@ -41,7 +41,7 @@ if (!defined('GV_PATH')) define('GV_PATH', plugin_dir_path(__FILE__));
 register_activation_hook(
     __FILE__,
     [
-        \GreatVoucher\Application::class,
+        \GreatVoucher\Core\Application::class,
         'activate'
     ]
 );
@@ -49,7 +49,7 @@ register_activation_hook(
 register_deactivation_hook(
     __FILE__,
     [
-        \GreatVoucher\Application::class,
+        \GreatVoucher\Core\Application::class,
         'deactivate'
     ]
 );

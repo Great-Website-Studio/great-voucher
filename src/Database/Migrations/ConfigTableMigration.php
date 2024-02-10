@@ -2,7 +2,7 @@
 
 namespace GreatVoucher\Database\Migrations;
 
-class WpGvConfigMigration
+class ConfigTableMigration
 {
     /**
      * @var string
@@ -29,8 +29,8 @@ class WpGvConfigMigration
     {
         return "CREATE TABLE {$this->tableName} (
             id INT(11) NOT NULL AUTO_INCREMENT,
-            key VARCHAR(255) NOT NULL UNIQUE,
-            value VARCHAR(255) NOT NULL,
+            config_key VARCHAR(255) NOT NULL UNIQUE,
+            config_value VARCHAR(255) NOT NULL,
             PRIMARY KEY  (id)
         ) {$this->charsetCollate};";
     }
