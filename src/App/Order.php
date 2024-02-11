@@ -18,8 +18,7 @@ class Order
     {
         $this->voucherService = new \GreatVoucher\App\VoucherService();
 
-        add_action('woocommerce_order_status_processing', [$this, 'generateVoucher']);
-        add_action('woocommerce_order_status_completed', [$this, 'generateVoucher']);
+        add_action('woocommerce_order_status_changed', [$this, 'generateVoucher'], 10, 3);
         add_action('woocommerce_thankyou', [$this, 'thankyou'], 10, 1);
     }
 
@@ -28,15 +27,13 @@ class Order
      * 
      * @return void
      */
-    public function generateVoucher($order_id)
+    public function generateVoucher($order_id, $previousStatus, $currentStatus)
     {
         global $wpdb;
 
         $order = wc_get_order($order_id);
 
-        $status = $order->get_status();
-
-        if (!in_array($status, ['processing', 'completed'])) {
+        if (!in_array($previousStatus, ['processing', 'completed'])) {
             foreach ($order->get_items() as $item_id => $item) {
 
                 $product = $item->get_product();
