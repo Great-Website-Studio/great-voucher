@@ -107,9 +107,11 @@ class Admin
     {
         $session = $_SESSION['gv_flash_message'];
 
-        foreach ($session as $key => $value) {
-            if (isset($value['called']) && $value['called'] == true) {
-                unset($session[$key]);
+        if ($session) {
+            foreach ($session as $key => $value) {
+                if (isset($value['called']) && $value['called'] == true) {
+                    unset($session[$key]);
+                }
             }
         }
 
